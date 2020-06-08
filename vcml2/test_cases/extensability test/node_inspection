@@ -1,0 +1,183 @@
+ 
+scott@cnl-3:~/vtest> docker inspect m1
+[
+    {
+        "Id": "1ffc488992b621756ae00051d90fb72ff98a8c02551b4a6f813d758b867f6627",
+        "Created": "2016-03-11T16:22:15.08160945Z",
+        "Path": "/bin/bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 17988,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2016-03-11T16:22:15.571920503Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:ab627e6ff6f374283623220e8b721d7f57349dc90228347d863b88ea576e6e75",
+        "ResolvConfPath": "/var/lib/docker/containers/1ffc488992b621756ae00051d90fb72ff98a8c02551b4a6f813d758b867f6627/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/1ffc488992b621756ae00051d90fb72ff98a8c02551b4a6f813d758b867f6627/hostname",
+        "HostsPath": "/var/lib/docker/containers/1ffc488992b621756ae00051d90fb72ff98a8c02551b4a6f813d758b867f6627/hosts",
+        "LogPath": "/var/lib/docker/containers/1ffc488992b621756ae00051d90fb72ff98a8c02551b4a6f813d758b867f6627/1ffc488992b621756ae00051d90fb72ff98a8c02551b4a6f813d758b867f6627-json.log",
+        "Name": "/m1",
+        "RestartCount": 0,
+        "Driver": "devicemapper",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/nfshome/CNL/home/scott:/mydata"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "NetA",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [
+                "m4.NetB:172.16.0.66",
+                "m2.NetC:172.16.0.189",
+                "m6.NetD:172.20.0.2",
+                "m5.NetC:172.16.0.130",
+                "m2.NetA:172.16.0.62",
+                "m3.NetC:172.16.0.190",
+                "m3.NetD:172.20.0.254",
+                "m1.NetA:172.16.0.2",
+                "m2.NetB:172.16.0.126"
+            ],
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "ShmSize": 33554432,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "KernelMemory": 0,
+            "Memory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null
+        },
+        "GraphDriver": {
+            "Name": "devicemapper",
+            "Data": {
+                "DeviceId": "355",
+                "DeviceName": "docker-8:4-67963658-6cd756d3fa711f26efde51692d96e79c652ec9c401ef473efd36cb6b02aa149f",
+                "DeviceSize": "107374182400"
+            }
+        },
+        "Mounts": [
+            {
+                "Source": "/nfshome/CNL/home/scott",
+                "Destination": "/mydata",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "m1",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "vcml/vcml2",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {},
+            "StopSignal": "SIGTERM"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "40b9b7ee9647fe25a0472c0454edd14c2feee55e871b0350d1f4adfa9fabb074",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/40b9b7ee9647",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "NetA": {
+                    "IPAMConfig": {
+                        "IPv4Address": "172.16.0.2"
+                    },
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "e8ccdb3751a75af17a3f9d8def81f5f175fefbfd5c0da0eff9d384b845f18068",
+                    "EndpointID": "9c94d542d77d21695402d58be21c931af3c93e601d5e435a3326fadc6f0c06a8",
+                    "Gateway": "172.16.0.1",
+                    "IPAddress": "172.16.0.2",
+                    "IPPrefixLen": 26,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:10:00:02"
+                }
+            }
+        }
+    }
+]
+scott@cnl-3:~/vtest> 

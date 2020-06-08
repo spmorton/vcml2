@@ -1,0 +1,132 @@
+Version 0.6.1 beta 3/20/2016:
+    Adjusted error handling of config file loading to provide more details on error
+    
+    Added a defined function for all command executions for code reduction and feature
+        addition, code analysis simplification
+    
+    Added a '--debug or '-d' command line option for 'dbuild.py' and 'dstart.py' that
+        writes all commands, messages, and outputs to 'dbuild.log' and 'dstart.log'
+    
+    Uniform set of sys.exit() codes
+        0 - success where applicable
+        -1 - CLI error
+        -2 - File level error
+        -3 - Docker command level error
+        -4 - Config missing error
+        -5 - VCML2 syntax error
+        -6 - Docker minimum version error
+
+    Updated README with new command line options and info
+
+Version 0.5.3 beta 3/11/2016:
+    Added a citation to the python docs for a graph traversal function based on the doc
+        page cited in dbuild.py. Basically got a late night refresher on graphing while
+        checking to see if a graph module existed for python.
+    
+    Corrected a bug where if a node was created and attached to a default network, it may
+        not get named appropriately.
+    
+    Corrected a bug where a node connected to more than one pre-defined Docker network
+        might generate a python error.
+        
+    Adjusted some verbiage in comments and some command responses. Removed extraneous and
+        commented out lines of code.
+        
+    Noted attribute "networks" as required for "NODES"
+    
+    Added a 'test_cases' folder with all example config files notated
+    
+    Checked and adjusted as needed all examples in README
+    
+    Performed extensability test, literally adjusted this 'dict' in 'dbuild.py' to extend the
+        capabilities of the lanquage, added "shared_memory" key and associated docker command
+        line syntax. Added same key to single machine and noted setting applied. See extensabilty
+        testing folder under test_cases. node_inspection file shows settings applied at line 77
+        where the default setting is 64MB
+        
+            lexica = {
+                "net": {
+                    "driver": "--driver=",
+                    "subnet": "--subnet=",
+                    },
+                "node": {
+                    "hostname": "--hostname=",
+                    "image": "image",
+                    "router": "",
+                    "networks": "",
+                    "volume": "--volume=",
+                    "shared_memory": "--shm-size="
+                    }
+        }
+
+
+Version 0.5.2 beta 3/6/2016:
+    Adjusted line 115 of dstart.py from "else:" to "elif len(connected_routers) == 1:"
+        to handle the case where a multi-network, routed config might have an
+        isolated network with isolated nodes.
+        
+        Corrected routing where graph trversal returned the first available path
+        and should have returned the least cost path interms of the number of
+        routers crossed. (dbuild.py)
+        
+        Corrected a couple of typos in the responses of various modules
+        Added a response prior to synching ssh keys in dbuild.py
+        
+Version 0.5.1 beta 3/2/2016:
+    Major changes to the routing protocol,OK it really wasn't a routing 
+        protocol as it would only handle one router correctly. This
+        implementation is not perfect either, though it is a major
+        improvement. I expect someone to break it and send me a copy of 
+        the config.json that breaks it.
+        
+
+Version 0.4.2 beta 2/27/2016:
+    This is a cosmetic release, adjusted formatting of information output
+
+Version 0.4.1 beta 2/27/2016:
+    Cleaned up some noise on stdout, Adjusted README to closer reflect reality
+        Added apt-get install libxml2 to the instructions for the image and the
+        image. adjusted /bin/ping to allow users to run it
+        affectively tested out on Linux and Mac, promoting to beta
+        Added image to vcml repository on docker hub
+        Changed README to reflect new image location
+
+Version 0.3.7 alpha 2/26/2016:
+    Complete rewrite, too many changes to describe
+
+Version 0.2.6 alpha 2/2016:
+        Will no longer mount home dir to home dir, mounts the home dir in a sub-folder to
+            avoid ssh keyfile interactions while in the cluster. Also provides flexibility
+            for shell environments that may conflict with specific settings outside 
+            of the cluster
+
+Version 0.2.5 alpha 2/2016:
+	adjusted dstart.py, dstop.py to not display program info upon import
+	added feature in dconfig,py to capture the UID of the user given to be used during
+            user creation within the containers for rights management in a shared file system	
+	added UID attribute to user creation ‘command’ in dbuild.py
+	adjusted more verbiage in various response fields
+	corrected inter-host ssh communications
+	reorganized config interrogation to make more sense
+	Adjusted code portions to better reflect multi-os capabilities. More re-arrangememts
+            of code is need in this area. This was abnadon in part during the 0.1.x to
+            0.2.x rewrite and seperation of operations. Basically this is Linux code only
+            for now
+        added --env-file option to employ mpich specific env requirements, does not seem to
+            work in the desired fashion for this implementation
+        adjusted for configurable fixed range of ports at the node currently 60000-60049
+
+Version 0.2.4 alpha 2/2016:
+	Added a '--help' feature because Dr. Butler said
+            "any program that doesn't have this feature is a piece of crap" :-)
+	Replaced networking features previously implemented to require Host IP Addresses 
+            in a multi-host configuration
+	Relocated mkpasswd to the utility folder to remove dependency, attempted to address
+            user ID issues using -u switch for docker run/create. SSH has hard coded
+            requirements around user 'names' explicitly and '-u' creates a nameless entity
+	Some code cleanup and var name case standardization
+	Setup  single point of reference for application version
+	Added GPL 3.0
+	Adjusted verbiage on some questions and informational responses
+	Removed container tracking through cfg/_containers file, too confusing in multi-host
+    

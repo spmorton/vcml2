@@ -1,0 +1,42 @@
+{
+    "NETWORKS": {
+        "Net_A": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.0/26"
+        }, 
+        "Net_B": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.64/26"
+        },
+        "Net_C": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.128/26"
+        }
+    }, 
+
+
+    "NODES": {
+        "m1": {
+            "hostname": "m1", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["Net_A"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m2": {
+            "hostname": "m2", 
+            "image": "vcml/vcml2",
+            "router": true,
+            "networks": ["Net_A","Net_B","Net_C"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m3": {
+            "hostname": "m3", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["Net_C"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        }
+    }
+}
+

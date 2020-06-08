@@ -1,0 +1,10 @@
+{
+    "NETWORKS": {
+        "Net_A": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.0/26"
+        }
+    }, 
+
+    "NODES": {}
+}

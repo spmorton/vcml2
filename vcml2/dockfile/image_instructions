@@ -1,0 +1,17 @@
+Build the image as would any other form a dock file.
+After the image is built, from this directory issue the folowing 
+syntax to copy the ssh_config and sshd_config files to the containers
+etc/ssh folder
+
+
+docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+
+example:
+
+docker cp ssh_cfg my_container:/etc/ssh
+
+Once that is completed commit the image
+
+docker commit my_container myimage/name
+
+Use myimage/name in you config.json files

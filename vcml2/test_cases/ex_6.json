@@ -1,0 +1,68 @@
+{
+    "NETWORKS": {
+        "NetA": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.0/26"
+        }, 
+        "NetB": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.64/26"
+        },
+        "NetC": {
+            "driver": "bridge", 
+            "subnet": "172.16.0.128/26"
+        },
+        "NetD": {
+            "driver": "bridge", 
+            "subnet": "172.20.0.0/24"
+        }
+
+    }, 
+
+
+    "NODES": {
+        "m1": {
+            "hostname": "m1", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["NetA"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m2": {
+            "hostname": "m2", 
+            "image": "vcml/vcml2",
+            "router": true,
+            "networks": ["NetA","NetB","NetC"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m3": {
+            "hostname": "m3", 
+            "image": "vcml/vcml2",
+            "router": true,
+            "networks": ["NetC","NetD"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m4": {
+            "hostname": "m4", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["NetB"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m5": {
+            "hostname": "m5", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["NetC"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        },
+        "m6": {
+            "hostname": "m6", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["NetD"],
+            "volume": "/nfshome/CNL/home/scott:/mydata"
+        }
+    }
+}
+

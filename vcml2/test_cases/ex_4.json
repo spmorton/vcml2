@@ -1,0 +1,13 @@
+{
+    "NETWORKS": {
+    }, 
+
+    "NODES": {
+        "m1": {
+            "hostname": "m1", 
+            "image": "vcml/vcml2",
+            "router": false,
+            "networks": ["bridge"]
+        }
+    }
+}
